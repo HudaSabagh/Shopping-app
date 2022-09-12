@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "lib": ["esnext", "dom", "es5"],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "checkJs": true,
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "baseUrl": "./src/",
+    "rootUrl": "./src/",
+    "paths": {
+      "@db": ["./backend/db"],
+      "@db/*": ["./backend/db/*"]
+    }
+  },
+  "exclude": ["node_modules", "dist"]
+}

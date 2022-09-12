@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <!--  we will make some kind of table here -->
+    <!--  title | description | category | price -->
+    <!-- for loop here to define every element of the table -->
+    <!-- each table element will have the corresponding fields -->
+    <table x-data="window.products" x-init="await init()">
+      <tr>
+        <td>Title</td>
+        <td>Descriptions</td>
+        <td>Category</td>
+        <td>Price</td>
+        <td>Actions</td>
+      </tr>
+      <template x-for="item of products">
+        <tr>
+          <td x-text="item.title"></td>
+          <td x-text="item.description"></td>
+          <td x-text="item.category"></td>
+          <td x-text="item.price"></td>
+          <td>
+            <button @click="await window.basket.addToBasket({ itemId: item.id, qty: 1 })">Add Item</button>
+          </td>
+        </tr>
+      </template>
+    </table>
+    <hr />
+    <div x-data="window.user" x-init="await init()">
+      <h1>USER:</h1>
+      <h2 x-text="user.username"></h2>
+    </div>
+    <hr />
+    <h2>USER BASKET</h2>
+    <div x-data="window.basket" x-init="await init()">
+      <table>
+        <tr>
+          <td>id</td>
+          <td>qty</td>
+        </tr>
+        <template x-for="item of basket">
+          <tr>
+            <td x-text="item.itemId"></td>
+            <td x-text="item.qty"></td>
+          </tr>
+        </template>
+      </table>
+    </div>
+  </body>
+</html>
